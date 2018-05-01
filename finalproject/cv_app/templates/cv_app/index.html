@@ -1,0 +1,55 @@
+<html>
+   <head>
+       <title>
+           Login
+       </title>
+       <style>
+            .head {
+                font-family: sans-serif;
+                font-size: 100px;
+            }
+
+            p {
+                font-weight: bold;
+                font-size: 30px;
+            }
+        </style>
+   </head>
+   <body>
+        <section class=head>
+                {{persons.0.email}}
+                </br>
+                {{persons.0.firstName}}
+                {{persons.0.lastName}}
+        </section>
+        <section class=body>
+                <p>Description</p>
+                {{persons.0.description}}
+                
+                <p>Work Experience</p>
+                <ul>
+                {% for icon in workExperience %}
+                    <li>{{icon.company}}</li>
+                </br>
+                {% endfor %}
+                </ul>
+
+                <p>Education</p>
+                <ul>
+                {% for icon in education %}
+                    <li>{{icon.school}}</li>
+                </br>
+                {% endfor %}
+                </ul>
+
+                <p>Interest</p>
+                <ul>
+                {% for icon in interest %}
+                    <li>{{icon.interest}}</li>
+                </br>
+                {% endfor %}
+                </ul>
+
+        </section>       
+   </body>
+</html>
