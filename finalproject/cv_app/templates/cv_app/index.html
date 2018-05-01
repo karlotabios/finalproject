@@ -1,55 +1,160 @@
-<html>
-   <head>
-       <title>
-           Login
-       </title>
-       <style>
-            .head {
-                font-family: sans-serif;
-                font-size: 100px;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<style>
 
-            p {
-                font-weight: bold;
-                font-size: 30px;
-            }
-        </style>
-   </head>
-   <body>
-        <section class=head>
-                {{persons.0.email}}
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+ margin:0;
+ padding:0;
+ border:0;
+ outline:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ font-family: 'Abel';
+}
+body {
+ line-height:1;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+ display:block;
+}
+nav ul {
+ list-style:none;
+}
+blockquote, q {
+ quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+ content:'';
+ content:none;
+}
+a {
+ margin:0;
+ padding:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ text-decoration: none;
+ color: black;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /*background-color:*/ red;
+}
+
+.name {
+    font-size:24px;
+}
+
+header, main {
+    margin-top: 24px;
+    display: flex;
+    width: 100vw;
+    /*background-color:*/ blue;
+}
+
+header { 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*background-color:*/ yellow;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row p {
+    width: 48px;
+    font-weight: bold;
+    margin-right: 48px;
+}
+
+.row .card {
+    width: 50vw;
+    margin-bottom: 24px;
+}
+
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Fjalla+One" rel="stylesheet">
+    <title>CS 179.2</title>
+</head>
+<body>
+        <header>
+                <div class="name">{{persons.0.firstName}}{{persons.0.lastName}}</div>
                 </br>
-                {{persons.0.firstName}}
-                {{persons.0.lastName}}
-        </section>
-        <section class=body>
-                <p>Description</p>
-                {{persons.0.description}}
+                <div class="email">{{persons.0.email}}</div>
+        </header>
+        <main>
+                <div class="row">
+                    <p>Description</p>
+                    <div class="card">{{persons.0.description}}</div>
+                </div>
                 
-                <p>Work Experience</p>
-                <ul>
-                {% for icon in workExperience %}
-                    <li>{{icon.company}}</li>
-                </br>
-                {% endfor %}
-                </ul>
+                <div class="row">
+                    <p>Work Experience</p>
+                        <div class="card">
+                            <ul>
+                            {% for icon in workExperience %}
+                                <li>{{icon.company}}</li>
+                            </br>
+                            {% endfor %}
+                        </div>
+                    </ul>
+                </div>
 
-                <p>Education</p>
-                <ul>
-                {% for icon in education %}
-                    <li>{{icon.school}}</li>
-                </br>
-                {% endfor %}
-                </ul>
+                <div class="row">
+                    <p>Education</p>
+                        <div class="card">
+                            <ul>
+                            {% for icon in education %}
+                                <li>{{icon.school}}</li>
+                            </br>
+                            {% endfor %}
+                        </div>
+                    </ul>
+                </div>
 
-                <p>Interest</p>
-                <ul>
-                {% for icon in interest %}
-                    <li>{{icon.interest}}</li>
-                </br>
-                {% endfor %}
-                </ul>
+                <div class="row">
+                    <p>Interest</p>
+                        <div class="card">
+                            <ul>
+                            {% for icon in interest %}
+                                <li>{{icon.interest}}</li>
+                            </br>
+                            {% endfor %}
+                        </div>
+                    </ul>
+                </div>
 
-        </section>       
-   </body>
+        </main>       
+</body>
 </html>
